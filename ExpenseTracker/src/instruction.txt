@@ -1,0 +1,12 @@
+The project is an expense controller
+
+If a Get Request is made->Prints all the expense -> "/"
+
+If Post Request is made-> Add an expense -> "/"
+
+If Delete Request is made -> Delete the exense -> "/id"
+
+If a Get Request is made to "/sum" -> Print entire sum
+
+If a Get Request is made to "/category_name" -> Print all expense in that category
+
