@@ -1,0 +1,11 @@
+The project implements a log watching solution (similar to the tail -f command in UNIX). 
+This program monitors a log file and capable of streaming updates that happen in it.
+It runs on the same machine as the log file.
+A web based client (accessible via URL  http://localhost:8080/) prints the updates in the file as and when they happen and NOT upon page refresh.
+The page is loaded once and it keeps getting updated in real-time.
+The user sees the last 10 lines in the file when they visit the page for the first time
+The project uses Websocket Connection.
+
+How to use:
+Add data in log.txt file and see the last 10 lines being updated on the http://localhost:8080/
+When more data is added in log.txt and saved. It gets updated on the local host in real time and doesn't require reloading.
