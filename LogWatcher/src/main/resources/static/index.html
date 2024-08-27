@@ -1,0 +1,46 @@
+<html lang="en">
+	
+<head>
+	<title>Log Watcher</title>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+	
+	
+	<script>
+		let client=null;
+		let socket=new SockJS("/logs")
+		
+		client=Stomp.over(socket)
+		
+		client.connect({}, function(frame)
+		{
+			console.log("Connected!");
+			
+			client.subscribe("/topic/log", function(data)
+			{
+				
+				print(JSON.parse(data.body))
+			})
+		})
+		
+		function print(msg)
+		{
+			let log=document.getElementById("logs")
+			let newlog=document.createElement("p")
+			
+			newlog.appendChild(document.createTextNode(msg.content))
+			log.appendChild(newlog)
+		}
+	</script>
+		
+</head>
+		
+		
+		<body>
+			<h1>Data</h1>
+			<p id="logs"></p>
+		</body>
+</html>
+		
+			
